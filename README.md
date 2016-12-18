@@ -44,7 +44,7 @@ new SemverWebpackPlugin({options})
 - `files`: list of input files, should are absolute paths
 - `incArgs`: `arguments` will be passed to function `semver.inc()`, see [node-semver](https://github.com/npm/node-semver)
 - `console`: show console output of version update (default: false)
-- `buildDate`: add `buildDate` key to package.json
+- `buildDate`: add `buildDate` key to package.json (default: false)
 
 ### Arguments
 - `--semver-extended-webpack-plugin-inc-args` arguments passed to function `semver.inc` (in `csv` format), ex: `webpack --semver-extended-webpack-plugin-inc-args=prelease,beta`
