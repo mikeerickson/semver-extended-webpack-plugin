@@ -1,6 +1,6 @@
 {
   "name": "semver-extended-webpack-plugin",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "author": "Mike Erickson <codedungeon@gmail.com> (https://github.com/mikeerickson)",
   "license": "MIT",
   "main": "index.js",
