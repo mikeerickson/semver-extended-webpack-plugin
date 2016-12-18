@@ -1,7 +1,7 @@
 # semver-extended-webpack-plugin
 A webpack plugic to do [semver](http://semver.org)
 
-### Archives
+#### Archives
 - npm: [semver-extended-webpack-plugin](https://www.npmjs.com/package/semver-extended-webpack-plugin)
 - git: [semver-extended-webpack-plugin](https://github.com/mikeerickson/semver-extended-webpack-plugin)
 
