@@ -1,9 +1,9 @@
-var semver  = require('semver');
-var fs      = require('fs');
-var cmdArgs = require('command-line-args');
-var chalk   = require('chalk');
+const semver  = require('semver');
+const fs      = require('fs');
+const cmdArgs = require('command-line-args');
+const chalk   = require('chalk');
 
-var args = {};
+let args = {};
 try {
   args = cmdArgs([
     {
@@ -17,11 +17,11 @@ try {
   ]).parse();
 }
 catch (e) {
-  console.error('An error occured reading CLI arguments');
+  console.error('An error occurred reading CLI arguments');
 }
 
 function extractIncArgs(options) {
-  var incArgs = args['semver-extended-webpack-plugin-inc-args'];
+  let incArgs = args['semver-extended-webpack-plugin-inc-args'];
   if (incArgs) {
     incArgs = incArgs.split(',');
   }
@@ -46,19 +46,19 @@ function SemverWebpackPlugin(options) {
 
   writeOptions = this.options;
 
-  var incArgs = extractIncArgs(this.options);
-  var files = this.options.files;
+  let incArgs = extractIncArgs(this.options);
+  let files = this.options.files;
   if (files.length === 0) {
     throw new Error('`files` must have at least one file');
   }
 
-  var done = this.options.done;
-  var outMap = new Map();
+  let done = this.options.done;
+  let outMap = new Map();
 
   let newVers = '';
 
-  files.forEach(function (file) {
-    var f = require(file);
+  files.forEach((file) => {
+    let f = require(file);
     incArgs.unshift(f.version);
     f.version = semver.inc.apply(this, incArgs);
     newVers = f.version;
@@ -77,13 +77,13 @@ function SemverWebpackPlugin(options) {
   this.outMap = outMap;
 }
 
-SemverWebpackPlugin.prototype.apply = function (compiler) {
+SemverWebpackPlugin.prototype.apply = (compiler) => {
   if (args['semver-extended-webpack-plugin-disable']) {
     return;
   }
 
-  var outMap = this.outMap;
-  // compiler.plugin("emit", function (compilation, callback) {
+  let outMap = this.outMap;
+  // compiler.plugin("emit", (compilation, callback) => {
   //   outMap.forEach((json, file) => {
   //     compilation.assets[file] = {
   //       source: function () {return new Buffer(JSON.stringify(json, null, 2));},
