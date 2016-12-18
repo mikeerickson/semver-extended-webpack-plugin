@@ -1,5 +1,6 @@
 # semver-extended-webpack-plugin
 A webpack plugic to do [semver](http://semver.org)
+[semver-extended-webpack-plugin @ npmjs.org](https://www.npmjs.com/package/semver-extended-webpack-plugin)
 
 ## Features
 - Bump up `version` using function `semver.inc` fields in json files, ex: `package.json`, `bower.json`
