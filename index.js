@@ -39,29 +39,29 @@ function SemverWebpackPlugin(options) {
     return;
   }
 
-  this.options = options || {};
-  this.options.files = this.options.files || [];
-  this.options.console = this.options.console || false;
+  this.options           = options || {};
+  this.options.files     = this.options.files || [];
+  this.options.console   = this.options.console || false;
   this.options.buildDate = this.options.buildDate || false;
 
   writeOptions = this.options;
 
   let incArgs = extractIncArgs(this.options);
-  let files = this.options.files;
+  let files   = this.options.files;
   if (files.length === 0) {
     throw new Error('`files` must have at least one file');
   }
 
-  let done = this.options.done;
-  let outMap = new Map();
+  let done    = this.options.done;
+  let outMap  = new Map();
 
   let newVers = '';
 
   files.forEach((file) => {
-    let f = require(file);
+    let f     = require(file);
     incArgs.unshift(f.version);
     f.version = semver.inc.apply(this, incArgs);
-    newVers = f.version;
+    newVers   = f.version;
     if (writeOptions.buildDate) {
       f.buildDate = new Date();
     }
@@ -83,7 +83,7 @@ SemverWebpackPlugin.prototype.apply = (compiler) => {
   }
 
   let outMap = this.outMap;
-  // compiler.plugin("emit", (compilation, callback) => {
+  // compiler.plugin("emit", (compilation, callback) ={
   //   outMap.forEach((json, file) => {
   //     compilation.assets[file] = {
   //       source: function () {return new Buffer(JSON.stringify(json, null, 2));},
