@@ -16,9 +16,7 @@ try {
     }
   ]).parse();
 }
-catch (e) {
-  console.error('An error occurred reading CLI arguments');
-}
+catch (e) {}
 
 function extractIncArgs(options) {
   let incArgs = args['semver-extended-webpack-plugin-inc-args'];
