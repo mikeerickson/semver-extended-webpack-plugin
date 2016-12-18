@@ -7,11 +7,11 @@ var args = {};
 try {
   args = cmdArgs([
     {
-      name: 'semver-webpack-plugin-disable',
+      name: 'semver-extended-webpack-plugin-disable',
       type: Boolean,
       defaultValue: false
     }, {
-      name: 'semver-webpack-plugin-inc-args',
+      name: 'semver-extended-webpack-plugin-inc-args',
       type: String
     }
   ]).parse();
@@ -21,7 +21,7 @@ catch (e) {
 }
 
 function extractIncArgs(options) {
-  var incArgs = args['semver-webpack-plugin-inc-args'];
+  var incArgs = args['semver-extended-webpack-plugin-inc-args'];
   if (incArgs) {
     incArgs = incArgs.split(',');
   }
@@ -35,7 +35,7 @@ function extractIncArgs(options) {
 function SemverWebpackPlugin(options) {
   let writeOptions;
 
-  if (args['semver-webpack-plugin-disable']) {
+  if (args['semver-extended-webpack-plugin-disable']) {
     return;
   }
 
@@ -78,7 +78,7 @@ function SemverWebpackPlugin(options) {
 }
 
 SemverWebpackPlugin.prototype.apply = function (compiler) {
-  if (args['semver-webpack-plugin-disable']) {
+  if (args['semver-extended-webpack-plugin-disable']) {
     return;
   }
 
