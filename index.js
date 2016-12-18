@@ -69,7 +69,7 @@ function SemverWebpackPlugin(options) {
   });
 
   if (this.options.console) {
-    console.log(chalk.bold.green('  ==> Updating Version to ') + chalk.bold.cyan(newVers));
+    console.log(chalk.bold.green('  ==> Updated Version to ') + chalk.bold.cyan(newVers));
   }
 
   this.outMap = outMap;
