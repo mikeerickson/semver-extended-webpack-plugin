@@ -25,7 +25,7 @@ var SemverWebpackPlugin = require('semver-extended-webpack-plugin');
 module.exports = {
   plugins: [
       new SemverWebpackPlugin({
-        files: [path.resolve(__dirname, "package.json")],
+        files: [path.resolve(__dirname, 'package.json')],
         console: true,
         buildDate: true
       })
