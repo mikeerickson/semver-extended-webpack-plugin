@@ -1,0 +1,40 @@
+{
+  "name": "semver-extended-webpack-plugin",
+  "version": "1.1.3",
+  "author": "Mike Erickson <codedungeon@gmail.com> (https://github.com/mikeerickson)",
+  "license": "MIT",
+  "main": "index.js",
+  "description": "Semver webpack plugin, see http://semver.org",
+  "reveal": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikeerickson/semver-extended-webpack-plugin.git"
+  },
+  "scripts": {
+    "bump:patch": "bump patch",
+    "bump:minor": "bump minor",
+    "lint": "eslint index.js"
+  },
+  "keywords": [
+    "webpack",
+    "semver",
+    "bump",
+    "version",
+    "build",
+    "plugin"
+  ],
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "command-line-args": "^3.0.4",
+    "semver": "^5.3.0"
+  },
+  "devDependencies": {},
+  "engineStrict": true,
+  "engines": {
+    "node": "^5.6.0"
+  },
+  "bugs": {
+    "url": "https://github.com/mikeerickson/semver-extended-webpack-plugin/issues"
+  },
+  "homepage": "https://github.com/mikeerickson/semver-extended-webpack-plugin#readme"
+}
