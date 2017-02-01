@@ -26,6 +26,7 @@ module.exports = {
   plugins: [
       new SemverWebpackPlugin({
         files: [path.resolve(__dirname, 'package.json')],
+        incArgs: ['patch'],
         console: true,
         buildDate: true
       })

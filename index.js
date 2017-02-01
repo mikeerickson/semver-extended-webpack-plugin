@@ -54,11 +54,21 @@ function SemverWebpackPlugin(options) {
   let outMap  = new Map();
 
   let newVers = '';
+  let error   = false;
 
   files.forEach((file) => {
-    let f     = require(file);
+    let f = require(file);
+    let v = f.version;
     incArgs.unshift(f.version);
+
     f.version = semver.inc.apply(this, incArgs);
+
+    if (incArgs.length <= 1) {
+      console.log(chalk.bold.red('  ==> Invalid semver attributes, should contain one or more arguments (see args property)'));
+      f.version = v;
+      error = true;
+    }
+
     newVers   = f.version;
     if (writeOptions.buildDate) {
       f.buildDate = new Date();
@@ -68,7 +78,7 @@ function SemverWebpackPlugin(options) {
     (typeof done === 'function') && done(f);
   });
 
-  if (this.options.console) {
+  if ((this.options.console) && (!error)){
     console.log(chalk.bold.green('  ==> Updated Version to ') + chalk.bold.cyan(newVers));
   }
 
