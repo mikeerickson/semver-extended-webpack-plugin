@@ -41,6 +41,7 @@ function SemverWebpackPlugin(options) {
   this.options.files     = this.options.files || [];
   this.options.console   = this.options.console || false;
   this.options.buildDate = this.options.buildDate || false;
+  this.options.version   = this.options.version || '';
 
   writeOptions = this.options;
 
@@ -62,6 +63,10 @@ function SemverWebpackPlugin(options) {
     incArgs.unshift(f.version);
 
     f.version = semver.inc.apply(this, incArgs);
+
+    if (this.options.version.length > 0) {
+      f.version = this.options.version;
+    }
 
     if (incArgs.length <= 1) {
       console.log(chalk.bold.red('  ==> Invalid semver attributes, should contain one or more arguments (see args property)'));

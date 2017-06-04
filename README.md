@@ -28,7 +28,8 @@ module.exports = {
         files: [path.resolve(__dirname, 'package.json')],
         incArgs: ['patch'],
         console: true,
-        buildDate: true
+        buildDate: true,
+        version: '1.8'  // optional if you want to set the desired version
       })
     ]
 }
@@ -48,6 +49,7 @@ new SemverWebpackPlugin({options})
 | incArgs   | `arguments` will be passed to function `semver.inc()`, see [node-semver](https://github.com/npm/node-semver) |
 | console   | show console output of version update (default: false)                                                       |
 | buildDate | add `buildDate` key to package.json (default: false)                                                         |
+| version   | set version to a specific version (default: null)                                                            |
 
 ### Arguments
 - `--semver-extended-webpack-plugin-inc-args` arguments passed to function `semver.inc` (in `csv` format), ex: `webpack --semver-extended-webpack-plugin-inc-args=prelease,beta`
